@@ -1,0 +1,425 @@
+<!--Name: Olha Tymoshchuk
+    Purpose: Project 2-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Project 2 Olha Tymoshchuk</title>
+        <h1>Olha Tymoshchuk Project</h1>
+        <link rel="stylesheet" type="text/css" href="./css/style.css">
+
+
+    </head>
+
+   
+    <body>
+       <div id="id_1" class="box1">
+        <h4>Video Device</h4>
+        <strong>Serial Number: </strong>
+        <input type="text" id="tbSerialNumber"  style="padding-right: 5px; margin-top: 20px; " />
+        <p>
+        <strong>Supplier Name: </strong>
+        <input type="text" id="tbSupplierName"  style="padding-right: 5px; margin-top: 20px;" />
+        </p>
+        <p>
+        <strong>Replacement Cost: </strong>
+        <input type="text" id="tbReplaceCost"  style="padding-right: 5px; margin-top: 20px;" />
+        </p>
+        <p>
+        <strong>Status: </strong>
+        <input input type="checkbox" id="cbStatus" style="transform: scale(1.5);padding-right: 5px; margin-top: 20px;" />
+        </p>
+        <p>
+        <strong>Resolution: </strong>
+        <input type="text" id="tbResolution"  style="padding-right: 5px; margin-top: 20px;" />
+        </p>
+        <p>
+        <strong>Type: </strong>
+        <select id="dpType" style="padding-right: 5px; margin-top: 20px;">
+            <option>LCD</option>
+			<option>LED</option>
+            <option>Plasma</option>
+        </select>
+    </p>
+        
+        <div>
+        <p class="type"> 
+        <input type="button" class="btn" value="Previous" onclick="PrevVideoDev()"/>
+        <input type="button" class="btn" value="Next" onclick="NextVideoDev()"/>
+        <input type="button" class="btn" value="New" onclick="NewVideoDev()"/>
+        <input type="button" class="btn" value="Update" onclick="UpdateVideoDev()"/>
+        </p> 
+        </div>
+    </div>
+
+       <div id="id_2" class="box2" style="left:30px; top:80px;">
+        <h4>Hard Disk Device</h4>
+        <strong>Serial Number: </strong>
+        <input type="text" id="tbSerialNumberH"  style="padding-right: 5px; margin-top: 20px; " />
+        <p>
+        <strong>Supplier Name: </strong>
+        <input type="text" id="tbSupplierNameH"  style="padding-right: 5px; margin-top: 20px;" />
+        </p>
+        <p>
+        <strong>Replacement Cost: </strong>
+        <input type="text" id="tbReplaceCostH"  style="padding-right: 5px; margin-top: 20px;" />
+        </p>
+        <strong>Status: </strong>
+        <input input type="checkbox" id="cbStatusH" style="transform: scale(1.5);padding-right: 5px; margin-top: 20px;" />
+        </p>
+        <p>
+        <strong>Size: </strong>
+        <input type="text" id="tbSize"  style="padding-right: 5px; margin-top: 20px;" />
+        </p>
+        <p>
+        <p>
+        <strong>Transfer Rate: </strong>
+        <input type="text" id="tbTransfer"  style="padding-right: 5px; margin-top: 20px;" />
+        </p>
+        <p>
+        <strong>Platter Size: </strong>
+        <input type="text" id="tbPlatterSize"  style="padding-right: 5px; margin-top: 20px;" />
+        </p>
+        <p>
+        <strong>Number Of Platters: </strong>
+        <input type="text" id="tbNumberPlat"  style="padding-right: 5px; margin-top: 20px;" />
+        </p>
+        <p>
+        <input type="button" class="btn" value="Previous" onclick="PrevHardDisk()"/>
+        <input type="button" class="btn" value="Next" onclick="NextHardDisk()"/>
+        <input type="button" class="btn" value="New" onclick="NewHardDisk()"/>
+        <input type="button" class="btn" value="Update" onclick="UpdateHardDisk()"/>
+        </p> 
+        </div>
+
+       <div id="id_3" class="box3" style="left:30px; top:80px;">
+        <h4>SSD Disk Device</h4>
+        <strong>Serial Number: </strong>
+        <input type="text" id="tbSerialNumberS"  style="padding-right: 5px; margin-top: 20px; " />
+        <p>
+        <strong>Supplier Name: </strong>
+        <input type="text" id="tbSupplierNameS"  style="padding-right: 5px; margin-top: 20px;" />
+        </p>
+        <p>
+        <strong>Replacement Cost: </strong>
+        <input type="text" id="tbReplaceCostS"  style="padding-right: 5px; margin-top: 20px;" />
+        </p>
+        <strong>Status: </strong>
+        <input input type="checkbox" id="cbStatusS" style="transform: scale(1.5);padding-right: 5px; margin-top: 20px;" />
+        </p>
+        <p>
+        <strong>Size: </strong>
+        <input type="text" id="tbSizeS"  style="padding-right: 5px; margin-top: 20px;" />
+        </p>
+        <p>
+        <strong>Transfer Rate: </strong>
+        <input type="text" id="tbTransferS"  style="padding-right: 5px; margin-top: 20px;" />
+        </p>
+        <p>
+            <strong>Wear Leveling: </strong>
+            <input type="checkbox" id="cbWearLevelS" style="transform: scale(1.5);" />
+            </p>
+        <p>
+            <strong>Type: </strong>
+            <select id="dpTypeS" style="padding-right: 5px; margin-top: 20px;">
+                <option>Flash</option>
+                <option>DRAM</option>
+            </select>
+        </p>
+        
+        <br>
+        <input type="button" class="btn" value="Previous" onclick="prevSSD()"/>
+        <input type="button" class="btn" value="Next" onclick="NextSSD()"/>
+        <input type="button" class="btn" value="New" onclick="NewSSD()"/>
+        <input type="button" class="btn" value="Update" onclick="UpdateSSD()"/>
+        
+        </div>
+
+        <script>
+            //============================================
+            //base class
+        
+            class Device {
+                serialNumber = " ";
+                supplierName = " ";
+                replacementCost = 0.00;
+                status = 0;
+                //create a constructor of the base class
+                constructor(serialNumber, supplierName, replacementCost,status){
+                    this.serialNumber = serialNumber;
+                    this.supplierName = supplierName;
+                    this.replacementCost = replacementCost;
+                    this.status = status;
+                }
+        
+                //create a method
+                enable(){
+                    this.status = 1;
+                }
+                disable(){
+                    this.status = 0;
+                }
+        
+                get status(){
+                    return this._status;
+               }
+        
+            }
+        
+            //derived class video device
+        
+            class VideoDevice extends Device{
+                constructor(serialNumber, supplierName, replacementCost,status, resolution, type){
+                    super(serialNumber, supplierName, replacementCost, status);
+                    this.resolution = resolution;
+                    this.type = type;
+                    
+                    
+                }
+            }
+        
+            //derived class disk device
+            class DiskDevice extends Device{
+                constructor(serialNumber, supplierName, replacementCost,status, size, transferRate){
+                    super(serialNumber, supplierName, replacementCost, status);
+                    this.size = size;
+                    this.transferRate = transferRate;
+                }
+            }
+            //sub class of disk device class
+            class hardDisk extends DiskDevice{
+                constructor(serialNumber, supplierName, replacementCost, status, size, transferRate, platterSize, numberOfPlatters)
+                {
+                    super(serialNumber, supplierName, replacementCost,status, size, transferRate);
+                    this.platterSize = platterSize;
+                    this.numberOfPlatters = numberOfPlatters;
+                }
+            }
+        
+            //sub class of the disk device class
+            class ssdDisk extends DiskDevice {
+                constructor(serialNumber,supplierName, replacementCost,status, size, transferRate, typeSSD, wearLeveling){
+                    super(serialNumber, supplierName, replacementCost,status, size, transferRate);
+                    this.typeSSD = typeSSD;
+                    this.wearLeveling = wearLeveling;
+                }
+            }
+        
+            //===================================================================
+            //Global arrays 
+            var videoArray = [];
+            var hardArray = [];
+            var ssd = [];
+        
+            var changeVideo = 0;
+            var changeHard = 0;
+            var changeSSD = 0;
+               
+            //====================================================================
+            //Functions
+            //FOR video device
+            function NewVideoDev(){
+               var numV = document.getElementById("tbSerialNumber").value;
+               var nameV = document.getElementById("tbSupplierName").value;
+               var costV = document.getElementById("tbReplaceCost").value;
+               var statusV = document.getElementById("cbStatus").value;
+               var resolutionV = document.getElementById("tbResolution").value;
+               var typeV = document.getElementById("dpType").value;
+               
+        
+                if(videoArray.length <= 0){
+                    var obj = new VideoDevice (numV, nameV, costV, statusV, resolutionV, typeV);
+                    //add objects to the array
+                    videoArray.push(obj);
+                }
+                else{
+                    var obj = new VideoDevice (numV, nameV, costV, statusV, resolutionV, typeV);
+                    //add objects to the array
+                    videoArray.push(obj);
+                }
+                console.log(videoArray);
+            }//end of NewVideoDev()
+        
+            //function to display devices
+            function displayVideoDev(changeVideo){
+                document.getElementById("tbSerialNumber").value = videoArray[changeVideo].serialNumber;
+                document.getElementById("tbSupplierName").value = videoArray[changeVideo].supplierName;
+                document.getElementById("tbReplaceCost").value = videoArray[changeVideo].replacementCost;
+                document.getElementById("cbStatus").value = videoArray[changeVideo].status;
+                document.getElementById("tbResolution").value = videoArray[changeVideo].resolution;
+                document.getElementById("dpType").value = videoArray[changeVideo].type;
+            }
+            //function NextVideoDev()
+            function PrevVideoDev(){
+                changeVideo -=1;
+                if(changeVideo < 0){
+                    alert("There are no previous devices!");
+                }
+                else{
+                    displayVideoDev(changeVideo);
+                } 
+            }
+
+            function NextVideoDev(){
+                changeVideo +=1;
+                if(changeVideo < videoArray.length){
+                    displayVideoDev(changeVideo);
+                }
+                else{
+                 alert("There are no games left!");
+                } 
+            }
+
+
+            
+            function UpdateVideoDev(){
+                videoArray[changeVideo].serialNumber = document.getElementById("tbSerialNumber").value;
+                videoArray[changeVideo].supplierName = document.getElementById("tbSupplierName").value;
+                videoArray[changeVideo].replacementCost = document.getElementById("tbReplaceCost").value;
+                videoArray[changeVideo].status = document.getElementById("cbStatus").value;
+                videoArray[changeVideo].resolution = document.getElementById("tbResolution").value;
+                videoArray[changeVideo].type = document.getElementById("dpType").value;
+            }
+
+
+            //=======================================================================================================================
+            //functions for hard disk
+            //serialNumber,supplierName, replacementCost,status, platterSize, numberOfPlatters
+            function NewHardDisk(){
+               var numH = document.getElementById("tbSerialNumberH").value;
+               var nameH = document.getElementById("tbSupplierNameH").value;
+               var costH = document.getElementById("tbReplaceCostH").value;
+               var statusH = document.getElementById("cbStatusH").value;
+               var size = document.getElementById("tbSize").value;
+               var transfRate = document.getElementById("tbTransfer").value;
+               var plsize = document.getElementById("tbPlatterSize").value;
+               var platterNum = document.getElementById("tbNumberPlat").value;
+        
+                if(videoArray.length <= 0){
+                    var obj = new hardDisk (numH, nameH, costH, statusH, size, transfRate, plsize, platterNum );
+                    //add objects to the array
+                    hardArray.push(obj);
+                }
+                else{
+                    var obj = new hardDisk (numH, nameH, costH, statusH, size, transfRate, plsize, platterNum );
+                    //add objects to the array
+                    hardArray.push(obj);
+                }
+                console.log(hardArray);
+            }//end of NewVideoDev()
+        
+            //function to display devices
+            function displayHardDisk(changeHard){
+                document.getElementById("tbSerialNumberH").value = hardArray[changeHard].serialNumber;
+                document.getElementById("tbSupplierNameH").value = hardArray[changeHard].supplierName;
+                document.getElementById("tbReplaceCostH").value = hardArray[changeHard].replacementCost;
+                document.getElementById("cbStatusH").value = hardArray[changeHard].status;
+                document.getElementById("tbSize").value = hardArray[changeHard].size;
+                document.getElementById("tbTransfer").value = hardArray[changeHard].transferRate;
+                document.getElementById("tbPlatterSize").value = hardArray[changeHard].platterSize;
+                document.getElementById("tbNumberPlat").value = hardArray[changeHard].numberOfPlatters;
+            }
+            //function NextVideoDev()
+            function PrevHardDisk(){
+                changeHard -=1;
+                if(changeHard < 0){
+                    alert("There are no previous devices!");
+                }
+                else{
+                    displayHardDisk(changeHard);
+                } 
+            }
+
+            function  NextHardDisk(){
+                changeHard +=1;
+                if(changeHard < hardArray.length){
+                    displayHardDisk(changeHard);
+                }
+                else{
+                 alert("There are no games left!");
+                } 
+            }
+
+            function UpdateHardDisk(){
+                hardArray[changeHard].serialNumber = document.getElementById("tbSerialNumberH").value;
+                hardArray[changeHard].supplierName = document.getElementById("tbSupplierNameH").value;
+                hardArray[changeHard].replacementCost = document.getElementById("tbReplaceCostH").value;
+                hardArray[changeHard].status = document.getElementById("cbStatusH").value;
+                hardArray[changeHard].size = document.getElementById("tbSize").value;
+                hardArray[changeHard].transferRate = document.getElementById("tbTransfer").value;
+                hardArray[changeHard].platterSize = document.getElementById("tbPlatterSize").value;
+                hardArray[changeHard].numberOfPlatters = document.getElementById("tbNumberPlat").value;
+                
+            }
+
+
+            //=======================================================================================================================
+            //SSD functions
+            function NewSSD(){
+               var numS = document.getElementById("tbSerialNumberS").value;
+               var nameS = document.getElementById("tbSupplierNameS").value;
+               var costS = document.getElementById("tbReplaceCostS").value;
+               var statusS = document.getElementById("cbStatusS").value;
+               var sizeS = document.getElementById("tbSizeS").value;
+               var transfRateS = document.getElementById("tbTransferS").value;
+               var typeS = document.getElementById("dpTypeS").value;
+               var wearLevelS = document.getElementById("cbWearLevelS").value;
+        
+                if(ssd.length <= 0){
+                    var obj = new ssdDisk (numS, nameS, costS, statusS, sizeS, transfRateS, typeS, wearLevelS);
+                    //add objects to the array
+                    ssd.push(obj);
+                }
+                else{
+                    var obj = new ssdDisk (numS, nameS, costS, statusS, sizeS, transfRateS, typeS, wearLevelS);
+                    //add objects to the array
+                    ssd.push(obj);
+                }
+                console.log(ssd);
+            }//end of NewVideoDev()
+        
+            //function to display devices
+            function displaySSD(changeSSD){
+                document.getElementById("tbSerialNumberS").value = ssd[changeSSD].serialNumber;
+                document.getElementById("tbSupplierNameS").value = ssd[changeSSD].supplierName;
+                document.getElementById("tbReplaceCostS").value = ssd[changeSSD].replacementCost;
+                document.getElementById("cbStatusS").value = ssd[changeSSD].status;
+                document.getElementById("tbSizeS").value = ssd[changeSSD].size;
+                document.getElementById("tbTransferS").value = ssd[changeSSD].transferRate;
+                document.getElementById("dpTypeS").value = ssd[changeSSD].typeSSD;
+                document.getElementById("cbWearLevelS").value = ssd[changeSSD].wearLeveling;
+            }
+            //function NextVideoDev()
+            function prevSSD(){
+                changeSSD -=1;
+                if(changeSSD < 0){
+                    alert("There are no previous devices!");
+                }
+                else{
+                    displaySSD(changeSSD);
+                } 
+            }
+
+            function  NextSSD(){
+                changeSSD +=1;
+                if(changeSSD < ssd.length){
+                    displaySSD(changeSSD);
+                }
+                else{
+                 alert("There are no games left!");
+                } 
+            }
+
+            function UpdateSSD(){
+                ssd[changeSSD].serialNumber = document.getElementById("tbSerialNumberS").value;
+                ssd[changeSSD].supplierName = document.getElementById("tbSupplierNameS").value;
+                ssd[changeSSD].replacementCost = document.getElementById("tbReplaceCostS").value;
+                ssd[changeSSD].status = document.getElementById("cbStatusS").value;
+                ssd[changeSSD].size = document.getElementById("tbSizeS").value;
+                ssd[changeSSD].transferRate = document.getElementById("tbTransferS").value;
+                ssd[changeSSD].typeSSD = document.getElementById("dpTypeS").value;
+                ssd[changeSSD].wearLeveling = document.getElementById("cbWearLevelS").value;
+                
+            }
+    </script>        
+    </body>
+</html>

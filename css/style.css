@@ -1,0 +1,68 @@
+body,html{
+    background-image: url("./img/Canva\ -\ Triangular\ Cut\ Woods.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%; 
+    margin-top: 0px; 
+}
+h1, h4{
+    text-align: center;
+}
+
+
+
+.box1{
+    background-color: whitesmoke;
+    opacity: 0.9;
+    float: left;
+    width:400px;
+    height: 600px;
+    margin-left: 80px;
+    border-style: solid;
+    border-width: .5px;
+    border-radius: 4px;
+    text-align: center;
+}
+.box2{
+    background-color: whitesmoke;
+    opacity: 0.9;
+    float: left;
+    width:400px;
+    height: 600px;
+    margin-left: 50px;
+    border-style: solid;
+    border-width: .5px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.box3{
+    background-color: whitesmoke;
+    opacity: 0.9;
+    float: left;
+    width:400px;
+    height: 600px;
+    margin-left: 50px;
+    border-style: solid;
+    border-width: .5px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.btn{
+    background-color: #f0463a; 
+    border: none;
+    color: white;
+    padding: 6px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+}
+.btn:hover{
+    background-color: #4566f7;
+}
+.type {
+    clear: both;
+}
